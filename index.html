@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Color Clock</title>
+        <!-- discord embed -->
+        <meta property="og:title" content="Turn the time into a color" />
+        <meta
+            property="og:description"
+            content="All my homies LOVE hex codes"
+        />
+        <meta property="og:image" content="https://i.imgur.com/UkZxX5g.png" />
+        <meta property="og:url" content="https://colorclock.vercel.app" />
+        <meta property="og:type" content="website" />
+        <link
+            rel="icon"
+            href="https://i.imgur.com/sPxq6s5.png"
+            type="image/png"
+        />
+
+        <!-- twitter (NOT X) embed u STUPID elon -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Turn the time into a color" />
+        <meta
+            name="twitter:description"
+            content="All my homies LOVE hex codes"
+        />
+        <meta name="twitter:image" content="https://i.imgur.com/UkZxX5g.png" />
+        <meta name="twitter:url" content="https://colorclock.vercel.app" />
+        <meta name="twitter:site" content="@LoolyTunes" />
+        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/reinvented-color-wheel@0.4.0/css/reinvented-color-wheel.min.css"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat&family=Lexend&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <div class="clock-container">
+                <h2 id="hex">#000000</h2>
+            </div>
+        </div>
+
+        <div id="feature-modal" class="modal-container hidden">
+            <div class="modal-content">
+                <button id="close-modal" class="close-btn">&times;</button>
+                <h3>Hex Code Utilities</h3>
+
+                <div class="feature-section">
+                    <div id="color-wheel-container"></div>
+                </div>
+
+                <div class="feature-section">
+                    <label for="manual-hex-input">Set Custom Color</label>
+                    <div class="input-group">
+                        <input
+                            type="text"
+                            id="manual-hex-input"
+                            placeholder="#RRGGBB"
+                        />
+                        <button id="set-hex-btn">Set</button>
+                    </div>
+                </div>
+
+                <div class="feature-section">
+                    <button id="reset-clock-btn">Reset to Live Clock</button>
+                </div>
+
+                <div class="feature-section">
+                    <button id="date-mode-btn">Use DD/MM/YY for Color</button>
+                </div>
+                <div class="feature-section timezone-section">
+                    <label for="timezone-select">Change Time Zone</label>
+                    <div class="input-group">
+                        <select id="timezone-select"></select>
+                        <button id="reset-timezone-btn">Reset</button>
+                    </div>
+                </div>
+                <div class="feature-section">
+                    <a
+                        href="https://tunes.is-a.dev"
+                        target="_blank"
+                        style="text-decoration: none"
+                    >
+                        <button id="socials-btn">
+                            My socials and projects
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/reinvented-color-wheel@0.4.0"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
