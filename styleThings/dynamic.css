@@ -1,0 +1,88 @@
+:root {
+    --text-color: white;
+    --overlay-bg: rgba(255, 255, 255, 0.2);
+    --overlay-border: rgba(255, 255, 255, 0.3);
+    --modal-bg: rgba(0, 0, 0, 0.6);
+    --button-bg: rgba(255, 255, 255, 0.4);
+    --button-hover: rgba(255, 255, 255, 0.6);
+}
+
+body {
+    transition: background-color 0.5s ease;
+}
+
+#hex {
+    color: var(--text-color);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+#hex:hover {
+    opacity: 0.8;
+}
+
+.modal-container {
+    background-color: var(--modal-bg);
+}
+
+.modal-content {
+    background: var(--overlay-bg);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--overlay-border);
+    color: var(--text-color);
+}
+
+.close-btn {
+    color: var(--text-color);
+}
+
+.input-group input,
+.input-group select {
+    border: 1px solid var(--overlay-border);
+    background-color: var(--overlay-bg);
+    color: var(--text-color);
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.input-group button,
+#reset-clock-btn,
+#date-mode-btn,
+#invert-mode-btn,
+#reverse-mode-btn,
+#socials-btn {
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    transition: background-color 0.2s;
+}
+
+.input-group button:hover,
+#reset-clock-btn:hover,
+#date-mode-btn:hover,
+#invert-mode-btn:hover,
+#reverse-mode-btn:hover,
+#socials-btn:hover {
+    background-color: var(--button-hover);
+}
+
+#socials-btn {
+    border: 1px solid var(--overlay-border);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    background: transparent;
+}
+
+#timezone-select option {
+    background-color: #333;
+    color: white;
+}
+
+#timezone-select option:hover {
+    background-color: #555;
+}
+
+.timezone-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}

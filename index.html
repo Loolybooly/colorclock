@@ -4,7 +4,12 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Color Clock</title>
-        <!-- discord embed -->
+
+        <meta
+            name="description"
+            content="Turn the current time into a hex color code."
+        />
+
         <meta property="og:title" content="Turn the time into a color" />
         <meta
             property="og:description"
@@ -13,13 +18,7 @@
         <meta property="og:image" content="https://i.imgur.com/UkZxX5g.png" />
         <meta property="og:url" content="https://colorclock.vercel.app" />
         <meta property="og:type" content="website" />
-        <link
-            rel="icon"
-            href="https://i.imgur.com/sPxq6s5.png"
-            type="image/png"
-        />
 
-        <!-- twitter (NOT X) embed u STUPID elon -->
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Turn the time into a color" />
         <meta
@@ -29,11 +28,21 @@
         <meta name="twitter:image" content="https://i.imgur.com/UkZxX5g.png" />
         <meta name="twitter:url" content="https://colorclock.vercel.app" />
         <meta name="twitter:site" content="@LoolyTunes" />
-        <link rel="stylesheet" href="style.css" />
+
+        <link
+            rel="icon"
+            href="https://i.imgur.com/sPxq6s5.png"
+            type="image/png"
+        />
+
+        <link rel="stylesheet" href="styleThings/static.css" />
+        <link rel="stylesheet" href="styleThings/dynamic.css" />
+
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/reinvented-color-wheel@0.4.0/css/reinvented-color-wheel.min.css"
         />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -43,15 +52,31 @@
     </head>
     <body>
         <div class="container">
-            <div class="clock-container">
-                <h2 id="hex">#000000</h2>
-            </div>
+            <main class="clock-container">
+                <h2 id="hex" title="Click to edit settings">#000000</h2>
+            </main>
         </div>
 
-        <div id="feature-modal" class="modal-container hidden">
-            <div class="modal-content">
-                <button id="close-modal" class="close-btn">&times;</button>
-                <h3>Hex Code Utilities</h3>
+        <div
+            id="feature-modal"
+            class="modal-container hidden"
+            aria-hidden="true"
+        >
+            <div
+                class="modal-content"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="modal-title"
+            >
+                <button
+                    id="close-modal"
+                    class="close-btn"
+                    aria-label="Close modal"
+                >
+                    &times;
+                </button>
+
+                <h3 id="modal-title">Hex Code Utilities</h3>
 
                 <div class="feature-section">
                     <div id="color-wheel-container"></div>
@@ -64,29 +89,52 @@
                             type="text"
                             id="manual-hex-input"
                             placeholder="#RRGGBB"
+                            aria-label="Manual Hex Input"
                         />
                         <button id="set-hex-btn">Set</button>
                     </div>
                 </div>
 
                 <div class="feature-section">
-                    <button id="reset-clock-btn">Reset to Live Clock</button>
+                    <button id="reset-clock-btn" aria-keyshortcuts="h">
+                        Reset to Live Clock [H]
+                    </button>
                 </div>
 
                 <div class="feature-section">
-                    <button id="date-mode-btn">Use DD/MM/YY for Color</button>
+                    <button id="date-mode-btn" aria-keyshortcuts="j">
+                        Date Mode (DD/MM/YY) [J]
+                    </button>
                 </div>
+
+                <div class="feature-section">
+                    <button id="invert-mode-btn" aria-keyshortcuts="k">
+                        Invert Color [K]
+                    </button>
+                </div>
+
+                <div class="feature-section">
+                    <button id="reverse-mode-btn" aria-keyshortcuts="l">
+                        Reverse Hex [L]
+                    </button>
+                </div>
+
                 <div class="feature-section timezone-section">
                     <label for="timezone-select">Change Time Zone</label>
                     <div class="input-group">
-                        <select id="timezone-select"></select>
+                        <select
+                            id="timezone-select"
+                            aria-label="Select Timezone"
+                        ></select>
                         <button id="reset-timezone-btn">Reset</button>
                     </div>
                 </div>
+
                 <div class="feature-section">
                     <a
                         href="https://tunes.is-a.dev"
                         target="_blank"
+                        tabindex="-1"
                         style="text-decoration: none"
                     >
                         <button id="socials-btn">
@@ -98,6 +146,7 @@
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/reinvented-color-wheel@0.4.0"></script>
-        <script src="main.js"></script>
+        <script type="module" src="functionThings/clock.js"></script>
+        <script type="module" src="functionThings/ui.js"></script>
     </body>
 </html>
